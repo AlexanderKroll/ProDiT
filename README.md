@@ -4,8 +4,6 @@ ProDiT
 This repository contains the code for the ProDiT manuscript "A Transformer-Based Dual-Input Framework Improves Protein Mutation Effect Predictions"
 
 
-Before running the pipeline, make sure you download the necessary data files from the zenodo repository (https://zenodo.org/record/XXX).
-
 Required Python packages
 ------------------------
 
