@@ -1,7 +1,7 @@
 ProDiT 
 ====================================
 
-This repository contains the code for the ProDiT end-to-end training pipeline.
+This repository contains the code for the ProDiT manuscript "A Transformer-Based Dual-Input Framework Improves Protein Mutation Effect Predictions"
 
 
 Before running the pipeline, make sure you download the necessary data files from the zenodo repository (https://zenodo.org/record/XXX).
@@ -117,25 +117,3 @@ Available arguments for *train.py*
 --training_size           int   number of training examples (50–5000)
 ```
 
-Running the full pipeline to reproduce the results from the paper
--------------------------
-
-For every dataset run the preprocessing scripts, pre-train on its Rosetta scores, then train on each experimental set size. Repeat for all eight datasets.
-
-```bash
-for d in avgfp dlg4-2022-binding gb1 grb2-abundance grb2-binding pab1 tem-1 ube4b; do
-    # preprocess
-    python code/preprocessing/preprocess_rosetta.py --data_path DATA --dataset "$d"
-    python code/preprocessing/preprocess_experimental_data.py --data_path DATA --dataset "$d"
-
-    # pre-train
-    python code/training/pretrain.py --data_path DATA --dataset "$d" [other hyper-parameters]
-
-    # supervised train on every set size
-    for n in 50 100 200 500 1000 2000 5000; do
-        python code/training/train.py --data_path DATA --dataset "$d" --training_size $n [other hyper-parameters]
-    done
-done
-```
-
-Adjust hyper-parameters as needed. Replace `DATA` with the absolute path to your *data* directory.
