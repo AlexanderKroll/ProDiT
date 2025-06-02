@@ -1,8 +1,7 @@
 ProDiT 
 ====================================
 
-This repository contains the code for the ProDiT manuscript "A Transformer-Based Dual-Input Framework Improves Protein Mutation Effect Predictions"
-
+This repository contains the code for the ProDiT manuscript "A Transformer-Based Dual-Input Framework Improves Protein Mutation Effect Predictions". 
 
 Required Python packages
 ------------------------
@@ -18,6 +17,9 @@ matplotlib
 
 Data preprocessing
 ------------------
+
+To run the code, please donwload the data folder from Zenodo (https://zenodo.org/record/15480956) and place the unzipped folder in the main GitHub directory.
+
 
 1. Rosetta score preprocessing
 
